@@ -1,0 +1,108 @@
+.gmg-hero {
+  position: relative;
+  height: 100vh;
+  min-height: 720px;
+  background: #17181A;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 60px;
+  overflow: hidden;
+}
+
+.gmg-hero-veins {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.9;
+}
+
+.gmg-hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+}
+
+.gmg-eyebrow {
+  color: #C9A876;
+  font-size: 13px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+  display: block;
+  font-family: 'IBM Plex Mono', monospace;
+}
+
+.gmg-hero-title {
+  font-family: 'Fraunces', serif;
+  color: #EDE7DC;
+  font-size: clamp(48px, 7vw, 104px);
+  font-weight: 500;
+  line-height: 1.02;
+  letter-spacing: -1px;
+  margin-bottom: 28px;
+}
+
+.gmg-hero-title em {
+  font-style: italic;
+  font-weight: 400;
+  color: #C9A876;
+}
+
+.gmg-hero-text {
+  color: #8C8479;
+  font-size: 18px;
+  line-height: 1.6;
+  max-width: 480px;
+  margin-bottom: 40px;
+}
+
+.gmg-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: transparent;
+  color: #EDE7DC;
+  border: 1px solid #A9834F;
+  padding: 16px 32px;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  text-decoration: none;
+  width: fit-content;
+  transition: all 0.25s ease;
+  font-family: 'Manrope', sans-serif;
+}
+
+.gmg-cta:hover {
+  background: #A9834F;
+  color: #17181A;
+}
+
+.gmg-scroll-hint {
+  position: absolute;
+  bottom: 40px;
+  left: 60px;
+  z-index: 2;
+  color: #8C8479;
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: 'Manrope', sans-serif;
+}
+
+.gmg-scroll-line {
+  width: 40px;
+  height: 1px;
+  background: #8C8479;
+}
+
+@media (max-width: 900px) {
+  .gmg-hero {
+    padding: 0 24px;
+  }
+}
