@@ -1,6 +1,6 @@
 .about-section {
   min-height: 100vh;
-  background-image: url("../../Photos/stone.jpg");
+  background-image: url('../../Photos/stone.jpg');
   background-size: cover;
   background-position: center;
   padding: 120px 80px;
@@ -12,7 +12,6 @@
 .about-overlay {
   width: 100%;
   max-width: 1300px;
-
 }
 
 .about-card {
@@ -28,7 +27,7 @@
 .about-content {
   width: 55%;
   padding: 90px;
-  color: #EDE7DC;
+  color: #ede7dc;
 }
 
 .about-subtitle {
@@ -38,7 +37,7 @@
 }
 
 .about-content h2 {
-  font-family: "Fraunces", serif;
+  font-family: 'Fraunces', serif;
   font-size: 70px;
   margin: 25px 0;
   line-height: 1.1;
@@ -56,7 +55,7 @@
   margin-top: 30px;
   padding: 16px 35px;
   border: none;
-  background: #EDE7DC;
+  background: #ede7dc;
   color: #222;
   cursor: pointer;
   border-radius: 4px;
@@ -79,7 +78,6 @@
 }
 
 /* Responsive */
-
 
 @media (max-width: 1300px) {
   .about-section {
