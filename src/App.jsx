@@ -8,9 +8,11 @@ import Services from "./components/sections/Services/Services";
 import Projects from "./components/sections/Projects/Projects";
 import Footer from "./components/layouts/Footer/Footer";
 import Loader from "./components/layouts/Loader/Loader";
+import useLangDirection from "./hooks/useLangDirection";
 
 function App() {
   const [loading, setLoading] = useState(true);
+  useLangDirection();
 
   useEffect(() => {
     const timer = setTimeout(() => setLoading(false), 1000);

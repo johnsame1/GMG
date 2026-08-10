@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 import styles from "./Footer.module.css";
 
 const fadeUp = {
@@ -7,42 +8,7 @@ const fadeUp = {
   visible: { opacity: 1, y: 0 },
 };
 
-// Re-triggering viewport config: replays every time the element
-// scrolls into view, both scrolling down AND scrolling back up.
 const viewportSettings = { once: false, amount: 0.2 };
-
-const collectionsLinks = [
-  "Calacatta",
-  "Statuario",
-  "Nero Marquina",
-  "Emperador",
-  "Onyx",
-  "Travertine",
-];
-const servicesLinks = [
-  "Consulting",
-  "Custom Fabrication",
-  "Installation",
-  "Aftercare",
-  "Sample Library",
-  "Export",
-];
-const companyLinks = [
-  "About GMG",
-  "Our Quarries",
-  "Sustainability",
-  "Press",
-  "Careers",
-  "Contact",
-];
-const legalLinks = ["Privacy Policy", "Terms of Use", "Cookie Policy"];
-const socialLinks = ["IG", "LI", "BE", "PI"];
-
-const contactDetails = [
-  "Via Cavour 14, 54033 Carrara, Italy",
-  "+39 0585 776 000",
-  "enquiries@gmg.com",
-];
 
 const FooterColumn = ({ title, links }) => (
   <div className={styles.column}>
@@ -60,8 +26,30 @@ const FooterColumn = ({ title, links }) => (
 );
 
 const Footer = () => {
+  const { t } = useTranslation();
+
+  const collectionsLinks = t("footer.columns.collections", {
+    returnObjects: true,
+  });
+  const servicesLinks = t("footer.columns.services", { returnObjects: true });
+  const companyLinks = t("footer.columns.company", { returnObjects: true });
+  const legalLinks = t("footer.legal", { returnObjects: true });
+
+  const contactDetails = [
+    t("footer.contact.address"),
+    t("footer.contact.phone"),
+    t("footer.contact.email"),
+  ];
+
+  const socialLinks = [
+    { key: "instagram", label: t("footer.social.instagram") },
+    { key: "linkedin", label: t("footer.social.linkedin") },
+    { key: "behance", label: t("footer.social.behance") },
+    { key: "pinterest", label: t("footer.social.pinterest") },
+  ];
+
   return (
-    <footer className={styles.footer}>
+    <footer className={styles.footer} id="contact">
       <motion.div
         className={styles.container}
         initial="hidden"
@@ -79,14 +67,11 @@ const Footer = () => {
               <span className={styles.logoBar} />
               <div>
                 <div className={styles.logoTitle}>GMG</div>
-                <div className={styles.logoSubtitle}>Luxury Stone</div>
+                <div className={styles.logoSubtitle}>{t("footer.tagline")}</div>
               </div>
             </div>
 
-            <p className={styles.description}>
-              Supplying the world&apos;s finest natural marble and stone to
-              luxury architects, interior designers, and developers since 1986.
-            </p>
+            <p className={styles.description}>{t("footer.description")}</p>
 
             <ul className={styles.contactList}>
               {contactDetails.map((item) => (
@@ -103,9 +88,18 @@ const Footer = () => {
             variants={fadeUp}
             transition={{ duration: 0.5, ease: "easeOut" }}
           >
-            <FooterColumn title="Collections" links={collectionsLinks} />
-            <FooterColumn title="Services" links={servicesLinks} />
-            <FooterColumn title="Company" links={companyLinks} />
+            <FooterColumn
+              title={t("footer.columns.collectionsTitle")}
+              links={collectionsLinks}
+            />
+            <FooterColumn
+              title={t("footer.columns.servicesTitle")}
+              links={servicesLinks}
+            />
+            <FooterColumn
+              title={t("footer.columns.companyTitle")}
+              links={companyLinks}
+            />
           </motion.div>
         </div>
 
@@ -116,9 +110,7 @@ const Footer = () => {
           variants={fadeUp}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <p className={styles.copyright}>
-            © 2024 GMG Luxury Stone. All rights reserved.
-          </p>
+          <p className={styles.copyright}>{t("footer.copyright")}</p>
 
           <ul className={styles.legalList}>
             {legalLinks.map((item) => (
@@ -132,9 +124,13 @@ const Footer = () => {
 
           <ul className={styles.socialList}>
             {socialLinks.map((item) => (
-              <li key={item}>
-                <a href="#" className={styles.socialLink} aria-label={item}>
-                  {item}
+              <li key={item.key}>
+                <a
+                  href="#"
+                  className={styles.socialLink}
+                  aria-label={item.label}
+                >
+                  {item.label}
                 </a>
               </li>
             ))}

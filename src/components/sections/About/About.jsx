@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 import "./About.css";
 import stone from "../../Photos/stone.jpg";
 
@@ -14,12 +15,7 @@ const fadeUp = {
 
 const container = {
   hidden: {},
-  visible: {
-    transition: {
-      staggerChildren: 0.15,
-      delayChildren: 0.1,
-    },
-  },
+  visible: { transition: { staggerChildren: 0.15, delayChildren: 0.1 } },
 };
 
 const imageReveal = {
@@ -32,13 +28,13 @@ const imageReveal = {
   },
 };
 
-// Re-triggering viewport config: replays every time the element
-// scrolls into view, both scrolling down AND scrolling back up.
 const viewportSettings = { once: false, amount: 0.3 };
 
 const About = () => {
+  const { t } = useTranslation();
+
   return (
-    <section className="about-section">
+    <section className="about-section" id="collections">
       <div className="about-overlay">
         <motion.div
           className="about-card"
@@ -49,21 +45,14 @@ const About = () => {
         >
           <motion.div className="about-content" variants={container}>
             <motion.span className="about-subtitle" variants={fadeUp}>
-              CURATED LIVING, QUIETLY LUXURIOUS.
+              {t("about.subtitle")}
             </motion.span>
 
-            <motion.h2 variants={fadeUp}>About GMG</motion.h2>
+            <motion.h2 variants={fadeUp}>{t("about.title")}</motion.h2>
 
-            <motion.p variants={fadeUp}>
-              GMG is a design studio rooted in a love of timeless interiors and
-              considered details. We create elegant spaces that balance beauty,
-              functionality, and emotion.
-            </motion.p>
+            <motion.p variants={fadeUp}>{t("about.p1")}</motion.p>
 
-            <motion.p variants={fadeUp}>
-              With years of experience, we transform ideas into refined
-              environments tailored to every client.
-            </motion.p>
+            <motion.p variants={fadeUp}>{t("about.p2")}</motion.p>
 
             <motion.button
               variants={fadeUp}
@@ -71,12 +60,12 @@ const About = () => {
               whileTap={{ scale: 0.97 }}
               transition={{ duration: 0.25, ease: "easeOut" }}
             >
-              Get in Touch
+              {t("about.button")}
             </motion.button>
           </motion.div>
 
           <motion.div className="about-image" variants={imageReveal}>
-            <img src={stone} alt="Interior" />
+            <img src={stone} alt={t("about.title")} />
           </motion.div>
         </motion.div>
       </div>

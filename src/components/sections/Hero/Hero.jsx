@@ -1,15 +1,11 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 import "./Hero.css";
 
 const container = {
   hidden: {},
-  visible: {
-    transition: {
-      staggerChildren: 0.15,
-      delayChildren: 0.2,
-    },
-  },
+  visible: { transition: { staggerChildren: 0.15, delayChildren: 0.2 } },
 };
 
 const fadeUp = {
@@ -33,11 +29,11 @@ const vein = {
   }),
 };
 
-// Re-triggering viewport config: replays every time the element
-// scrolls into view, both scrolling down AND scrolling back up.
 const viewportSettings = { once: false, amount: 0.3 };
 
 const Hero = () => {
+  const { t } = useTranslation();
+
   return (
     <section className="gmg-hero">
       <motion.svg
@@ -95,18 +91,17 @@ const Hero = () => {
         viewport={viewportSettings}
       >
         <motion.span className="gmg-eyebrow" variants={fadeUp}>
-          Quarried in Egypt · Cut for the world
+          {t("hero.eyebrow")}
         </motion.span>
 
         <motion.h1 className="gmg-hero-title" variants={fadeUp}>
-          Where stone
+          {t("hero.title1")}
           <br />
-          becomes <em>architecture</em>
+          {t("hero.title2")} <em>{t("hero.titleEm")}</em>
         </motion.h1>
 
         <motion.p className="gmg-hero-text" variants={fadeUp}>
-          GMG sources, cuts, and finishes natural marble and granite for
-          architects and developers who won't compromise on material honesty.
+          {t("hero.text")}
         </motion.p>
 
         <motion.a
@@ -117,7 +112,7 @@ const Hero = () => {
           whileTap={{ scale: 0.97 }}
           transition={{ duration: 0.3, ease: "easeOut" }}
         >
-          View the collections →
+          {t("hero.cta")}
         </motion.a>
       </motion.div>
 
@@ -133,7 +128,7 @@ const Hero = () => {
           animate={{ scaleY: [1, 0.4, 1] }}
           transition={{ duration: 1.6, repeat: Infinity, ease: "easeInOut" }}
         />
-        Scroll
+        {t("hero.scroll")}
       </motion.div>
     </section>
   );

@@ -63,7 +63,7 @@
 
 .about-image {
   position: absolute;
-  right: 30px;
+  inset-inline-end: 30px;
   top: 50%;
   transform: translateY(-50%);
   width: 500px;
@@ -75,6 +75,29 @@
   height: 100%;
   object-fit: cover;
   border-radius: 2%;
+}
+
+/* ---------- Arabic typography ---------- */
+/* Fraunces has no Arabic glyphs — without a fallback here, Arabic
+   headings silently drop to the OS default font and the whole
+   designed look falls apart. Cairo keeps a serif-adjacent display
+   weight that pairs reasonably with the rest of the site. */
+[dir="rtl"] .about-content h2 {
+  font-family: 'Cairo', 'Fraunces', serif;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+/* Letter-spacing pulls Arabic letters apart instead of reading as
+   "elegant tracking" — it breaks the script's natural joining. */
+[dir="rtl"] .about-subtitle {
+  letter-spacing: 0;
+}
+
+/* Arabic body copy reads a touch more comfortably with extra
+   line-height, same reasoning as the heading. */
+[dir="rtl"] .about-content p {
+  line-height: 2;
 }
 
 /* Responsive */
@@ -102,6 +125,10 @@
     letter-spacing: 2px;
   }
 
+  [dir="rtl"] .about-subtitle {
+    letter-spacing: 0;
+  }
+
   .about-content h2 {
     font-size: 42px;
     margin: 18px 0;
@@ -111,6 +138,10 @@
     max-width: 100%;
     font-size: 16px;
     line-height: 1.8;
+  }
+
+  [dir="rtl"] .about-content p {
+    line-height: 1.95;
   }
 
   .about-content button {

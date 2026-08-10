@@ -1,44 +1,8 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 import "./Projects.css";
 
-const PROJECTS = [
-  {
-    num: "01",
-    name: "UTC",
-    category: "Flooring & Staircases",
-    desc: "Full flooring and staircase installation — natural stone treads, risers, and floor slabs finished and set on-site by our own team.",
-    tags: ["Marble", "Staircases", "Interior"],
-    swatch: "swatch-1",
-  },
-  {
-    num: "02",
-    name: "Cairo Gate",
-    category: "Landscape",
-    desc: "Landscape stonework across outdoor walkways and shared areas, paired with the surrounding architecture and planting.",
-    tags: ["Landscape", "Paving", "Outdoor"],
-    swatch: "swatch-2",
-  },
-  {
-    num: "03",
-    name: "Mivida",
-    category: "Flooring",
-    desc: "Interior flooring supplied and installed to match the development's design specification, slab by slab.",
-    tags: ["Marble", "Flooring", "Interior"],
-    swatch: "swatch-3",
-  },
-  {
-    num: "04",
-    name: "Aterm",
-    category: "Gates",
-    desc: "Stone-clad entrance gates, cut and finished for a facade-grade result and installed directly on-site.",
-    tags: ["Facade", "Gates", "Exterior"],
-    swatch: "swatch-4",
-  },
-];
-
-// Re-triggering viewport config: replays every time the element
-// scrolls into view, both scrolling down AND scrolling back up.
 const viewportSettings = { once: false, amount: 0.3 };
 
 const fadeUp = {
@@ -52,22 +16,12 @@ const fadeUp = {
 
 const heroContainer = {
   hidden: {},
-  visible: {
-    transition: {
-      staggerChildren: 0.12,
-      delayChildren: 0.1,
-    },
-  },
+  visible: { transition: { staggerChildren: 0.12, delayChildren: 0.1 } },
 };
 
 const gridContainer = {
   hidden: {},
-  visible: {
-    transition: {
-      staggerChildren: 0.1,
-      delayChildren: 0.05,
-    },
-  },
+  visible: { transition: { staggerChildren: 0.1, delayChildren: 0.05 } },
 };
 
 const cardVariant = {
@@ -80,10 +34,27 @@ const cardVariant = {
   },
 };
 
+const PROJECT_KEYS = [
+  { key: "utc", swatch: "swatch-1" },
+  { key: "cairoGate", swatch: "swatch-2" },
+  { key: "mivida", swatch: "swatch-3" },
+  { key: "aterm", swatch: "swatch-4" },
+];
+
 const Projects = () => {
+  const { t } = useTranslation();
+
+  const PROJECTS = PROJECT_KEYS.map(({ key, swatch }, i) => ({
+    num: String(i + 1).padStart(2, "0"),
+    name: t(`projects.list.${key}.name`),
+    category: t(`projects.list.${key}.category`),
+    desc: t(`projects.list.${key}.desc`),
+    tags: t(`projects.list.${key}.tags`, { returnObjects: true }),
+    swatch,
+  }));
+
   return (
-    <div className="projects-page">
-      {/* HERO */}
+    <div className="projects-page" id="projects">
       <motion.section
         className="p-hero"
         variants={heroContainer}
@@ -92,18 +63,16 @@ const Projects = () => {
         viewport={viewportSettings}
       >
         <motion.div className="p-eyebrow" variants={fadeUp}>
-          OUR PROJECTS
+          {t("projects.eyebrow")}
         </motion.div>
         <motion.h1 className="p-h1 serif" variants={fadeUp}>
-          Work we've delivered
+          {t("projects.title")}
         </motion.h1>
         <motion.p className="p-sub" variants={fadeUp}>
-          A selection of completed projects — from flooring and staircases to
-          landscape work and entrance gates.
+          {t("projects.sub")}
         </motion.p>
       </motion.section>
 
-      {/* GRID */}
       <motion.section
         className="p-grid"
         variants={gridContainer}
@@ -129,9 +98,9 @@ const Projects = () => {
               <p className="p-desc">{p.desc}</p>
 
               <div className="p-tags">
-                {p.tags.map((t) => (
-                  <span className="p-tag" key={t}>
-                    {t}
+                {p.tags.map((tag) => (
+                  <span className="p-tag" key={tag}>
+                    {tag}
                   </span>
                 ))}
               </div>
@@ -140,7 +109,6 @@ const Projects = () => {
         ))}
       </motion.section>
 
-      {/* OUTRO */}
       <motion.section
         className="p-outro"
         variants={heroContainer}
@@ -149,12 +117,12 @@ const Projects = () => {
         viewport={viewportSettings}
       >
         <motion.div className="p-outro-eyebrow" variants={fadeUp}>
-          GOT A PROJECT IN MIND
+          {t("projects.outroEyebrow")}
         </motion.div>
         <motion.h2 className="p-outro-h2 serif" variants={fadeUp}>
-          Let's talk about
+          {t("projects.outroTitle1")}
           <br />
-          what you're building
+          {t("projects.outroTitle2")}
         </motion.h2>
         <motion.a
           href="#contact"
@@ -164,7 +132,7 @@ const Projects = () => {
           whileTap={{ scale: 0.97 }}
           transition={{ duration: 0.3, ease: "easeOut" }}
         >
-          Get in touch
+          {t("projects.cta")}
         </motion.a>
       </motion.section>
     </div>

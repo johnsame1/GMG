@@ -1,53 +1,26 @@
 import React, { useEffect, useRef, useState } from "react";
+import { useTranslation } from "react-i18next";
 import "./Services.css";
 
-const STEPS = [
-  {
-    tag: "01 / QUARRY",
-    title: "Marble is taken from the quarry",
-    desc: "Large marble blocks are carefully cut from the quarry using diamond wire.",
-    meta: [
-      { label: "METHOD", value: "Diamond wire cutting" },
-      { label: "FOCUS", value: "Safe and careful cutting" },
-    ],
-  },
-  {
-    tag: "02 / CUT",
-    title: "Blocks are cut into slabs",
-    desc: "The large blocks are cut into marble slabs and numbered to keep the natural pattern in order.",
-    meta: [
-      { label: "METHOD", value: "Block cutting" },
-      { label: "FOCUS", value: "Natural marble pattern" },
-    ],
-  },
-  {
-    tag: "03 / POLISH",
-    title: "Slabs are polished",
-    desc: "Each slab is polished or finished to get the right look, texture, and shine.",
-    meta: [
-      { label: "METHOD", value: "Polishing and finishing" },
-      { label: "FOCUS", value: "The right finish" },
-    ],
-  },
-  {
-    tag: "04 / INSTALL",
-    title: "Marble is installed on-site",
-    desc: "Our team installs the marble directly on-site, from floors and lobbies to walls and facades.",
-    meta: [
-      { label: "METHOD", value: "Our installation team" },
-      { label: "FOCUS", value: "Complete installation" },
-    ],
-  },
-];
-
 const Services = () => {
+  const { t } = useTranslation();
+
+  const STEPS = [1, 2, 3, 4].map((n) => ({
+    tag: t(`services.step${n}.tag`),
+    title: t(`services.step${n}.title`),
+    desc: t(`services.step${n}.desc`),
+    meta: [
+      { label: t("services.method"), value: t(`services.step${n}.method`) },
+      { label: t("services.focus"), value: t(`services.step${n}.focus`) },
+    ],
+  }));
+
   const stepRefs = useRef([]);
   const timelineRef = useRef(null);
   const [activeIdx, setActiveIdx] = useState(-1);
   const [dotTops, setDotTops] = useState([]);
   const [fillPercent, setFillPercent] = useState(0);
 
-  // Highlight the step currently in view
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -58,14 +31,13 @@ const Services = () => {
           }
         });
       },
-      { threshold: [0, 0.45, 0.6, 1] }
+      { threshold: [0, 0.45, 0.6, 1] },
     );
 
     stepRefs.current.forEach((el) => el && observer.observe(el));
     return () => observer.disconnect();
   }, []);
 
-  // Measure where each dot should sit on the center line (matches each card's vertical center)
   useEffect(() => {
     function measure() {
       const container = timelineRef.current;
@@ -82,9 +54,8 @@ const Services = () => {
     measure();
     window.addEventListener("resize", measure);
     return () => window.removeEventListener("resize", measure);
-  }, []);
+  }, [STEPS.length]);
 
-  // Smooth, continuous line fill tied to scroll position (rAF-throttled)
   useEffect(() => {
     let rafId = null;
 
@@ -113,28 +84,25 @@ const Services = () => {
   }, []);
 
   return (
-    <div className="process-page">
-      {/* HERO */}
+    <div className="process-page" id="process">
       <section className="hero">
-        <div className="eyebrow riseIn d1">THE PROCESS</div>
+        <div className="eyebrow riseIn d1">
+          {t("nav.process").toUpperCase()}
+        </div>
         <h1 className="hero-h1 serif riseIn d2">
-          From rock face
+          {t("hero.title1")}
           <br />
-          to finished floor
+          {t("hero.title2")}
         </h1>
-        <p className="hero-sub riseIn d3">
-          Four stages, one continuous chain of custody — from our quarry to
-          your site.
-        </p>
+        <p className="hero-sub riseIn d3">{t("hero.text")}</p>
         <div className="scroll-hint riseIn d4">
-          <span>Scroll down</span>
+          <span>{t("hero.scroll")}</span>
           <div className="hint-line">
             <div className="hint-drip drip" />
           </div>
         </div>
       </section>
 
-      {/* TIMELINE */}
       <div className="timeline" ref={timelineRef}>
         <div className="timeline-line">
           <div
@@ -162,11 +130,8 @@ const Services = () => {
                 className={`step${active ? " active" : ""}`}
               >
                 <span className="step-num mono">{step.tag}</span>
-
                 <h2 className="step-title serif">{step.title}</h2>
-
                 <p className="step-desc">{step.desc}</p>
-
                 <div className="step-detail">
                   {step.meta.map((m, j) => (
                     <div key={j} className="detail-item mono">
@@ -180,9 +145,6 @@ const Services = () => {
           );
         })}
       </div>
-
-      {/* OUTRO */}
-        
     </div>
   );
 };

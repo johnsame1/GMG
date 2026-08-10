@@ -116,3 +116,19 @@
   --z-modal: 2000;
   --z-tooltip: 3000;
 }
+html {
+  scroll-behavior: smooth;
+}
+
+section,
+.process-page,
+.projects-page,
+.about-section {
+  scroll-margin-top: 90px; /* match your fixed navbar's height */
+}
+
+/* RTL-aware direction fixes for animated x-transitions */
+[dir="rtl"] .gmg-cta:hover,
+[dir="rtl"] .p-cta:hover {
+  transform: translateX(-6px); /* mirror the whileHover x:6 direction */
+}
