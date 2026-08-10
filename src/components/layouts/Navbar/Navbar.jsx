@@ -3,7 +3,6 @@ import "./Navbar.css";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [lang, setLang] = useState("EN");
   const [scrolled, setScrolled] = useState(false);
 
   const menuRef = useRef(null);
@@ -18,8 +17,7 @@ const Navbar = () => {
 
     document.addEventListener("mousedown", handleClickOutside);
 
-    return () =>
-      document.removeEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
   // تغيير شكل الـ Navbar أثناء الـ Scroll
@@ -36,18 +34,18 @@ const Navbar = () => {
   }, []);
 
   return (
-    <nav
-      className={`gmg-nav ${scrolled ? "scrolled" : ""}`}
-      ref={menuRef}
-    >
+    <nav className={`gmg-nav ${scrolled ? "scrolled" : ""}`} ref={menuRef}>
       <div className="gmg-nav-logo">GMG</div>
 
       <div className="gmg-nav-actions">
         <button
-          className="menu-btn"
-          onClick={() => setMenuOpen(!menuOpen)}
+          type="button"
+          className={`menu-btn ${menuOpen ? "active" : ""}`}
+          aria-label={menuOpen ? "Close menu" : "Open menu"}
+          aria-expanded={menuOpen}
+          onClick={() => setMenuOpen((prev) => !prev)}
         >
-          ☰
+          {menuOpen ? "✕" : "☰"}
         </button>
 
         <ul className={`gmg-nav-links ${menuOpen ? "active" : ""}`}>
@@ -75,13 +73,6 @@ const Navbar = () => {
             </a>
           </li>
         </ul>
-
-        <button
-          className="lang-btn"
-          onClick={() => setLang(lang === "EN" ? "AR" : "EN")}
-        >
-          {lang}
-        </button>
       </div>
     </nav>
   );

@@ -1,4 +1,5 @@
 import React from "react";
+import { motion } from "framer-motion";
 import "./Projects.css";
 
 const PROJECTS = [
@@ -36,23 +37,88 @@ const PROJECTS = [
   },
 ];
 
+// Re-triggering viewport config: replays every time the element
+// scrolls into view, both scrolling down AND scrolling back up.
+const viewportSettings = { once: false, amount: 0.3 };
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 24 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] },
+  },
+};
+
+const heroContainer = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.12,
+      delayChildren: 0.1,
+    },
+  },
+};
+
+const gridContainer = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.1,
+      delayChildren: 0.05,
+    },
+  },
+};
+
+const cardVariant = {
+  hidden: { opacity: 0, y: 32, scale: 0.98 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] },
+  },
+};
+
 const Projects = () => {
   return (
     <div className="projects-page">
       {/* HERO */}
-      <section className="p-hero">
-        <div className="p-eyebrow">OUR PROJECTS</div>
-        <h1 className="p-h1 serif">Work we've delivered</h1>
-        <p className="p-sub">
+      <motion.section
+        className="p-hero"
+        variants={heroContainer}
+        initial="hidden"
+        whileInView="visible"
+        viewport={viewportSettings}
+      >
+        <motion.div className="p-eyebrow" variants={fadeUp}>
+          OUR PROJECTS
+        </motion.div>
+        <motion.h1 className="p-h1 serif" variants={fadeUp}>
+          Work we've delivered
+        </motion.h1>
+        <motion.p className="p-sub" variants={fadeUp}>
           A selection of completed projects — from flooring and staircases to
           landscape work and entrance gates.
-        </p>
-      </section>
+        </motion.p>
+      </motion.section>
 
       {/* GRID */}
-      <section className="p-grid">
+      <motion.section
+        className="p-grid"
+        variants={gridContainer}
+        initial="hidden"
+        whileInView="visible"
+        viewport={viewportSettings}
+      >
         {PROJECTS.map((p) => (
-          <article className="p-card" key={p.num}>
+          <motion.article
+            className="p-card"
+            key={p.num}
+            variants={cardVariant}
+            whileHover={{ y: -6 }}
+            transition={{ duration: 0.3, ease: "easeOut" }}
+          >
             <div className={`p-swatch ${p.swatch}`}>
               <span className="p-swatch-num mono">{p.num}</span>
             </div>
@@ -70,22 +136,37 @@ const Projects = () => {
                 ))}
               </div>
             </div>
-          </article>
+          </motion.article>
         ))}
-      </section>
+      </motion.section>
 
       {/* OUTRO */}
-      <section className="p-outro">
-        <div className="p-outro-eyebrow">GOT A PROJECT IN MIND</div>
-        <h2 className="p-outro-h2 serif">
+      <motion.section
+        className="p-outro"
+        variants={heroContainer}
+        initial="hidden"
+        whileInView="visible"
+        viewport={viewportSettings}
+      >
+        <motion.div className="p-outro-eyebrow" variants={fadeUp}>
+          GOT A PROJECT IN MIND
+        </motion.div>
+        <motion.h2 className="p-outro-h2 serif" variants={fadeUp}>
           Let's talk about
           <br />
           what you're building
-        </h2>
-        <a href="#contact" className="p-cta">
+        </motion.h2>
+        <motion.a
+          href="#contact"
+          className="p-cta"
+          variants={fadeUp}
+          whileHover={{ x: 6 }}
+          whileTap={{ scale: 0.97 }}
+          transition={{ duration: 0.3, ease: "easeOut" }}
+        >
           Get in touch
-        </a>
-      </section>
+        </motion.a>
+      </motion.section>
     </div>
   );
 };

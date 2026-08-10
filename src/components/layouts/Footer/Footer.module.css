@@ -1,0 +1,228 @@
+.footer {
+  background: var(--bg-dark);
+  color: var(--text-muted);
+  padding: var(--space-7) 0 var(--space-4);
+}
+
+.container {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 var(--space-4);
+}
+
+.top {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: var(--space-6);
+}
+
+/* ---------- Brand block ---------- */
+
+.brand {
+  max-width: 320px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-bottom: var(--space-3);
+}
+
+.logoBar {
+  width: 2px;
+  align-self: stretch;
+  background: var(--color-secondary);
+}
+
+.logoTitle {
+  font-family: var(--font-heading);
+  font-size: var(--fs-xl);
+  font-weight: var(--fw-semibold);
+  letter-spacing: 0.3em;
+  color: var(--text-light);
+  line-height: 1;
+}
+
+.logoSubtitle {
+  margin-top: 0.35rem;
+  font-family: var(--font-body);
+  font-size: 0.65rem;
+  font-weight: var(--fw-medium);
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--color-secondary);
+}
+
+.description {
+  font-family: var(--font-body);
+  font-size: var(--fs-sm);
+  line-height: 1.7;
+  color: var(--text-muted);
+  margin-bottom: var(--space-3);
+}
+
+.contactList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.contactItem {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  font-family: var(--font-body);
+  font-size: var(--fs-sm);
+  color: var(--text-muted);
+}
+
+.contactDash {
+  width: 12px;
+  height: 1px;
+  background: var(--color-secondary);
+  flex-shrink: 0;
+}
+
+/* ---------- Link columns ---------- */
+
+.columns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-6);
+}
+
+.column {
+  min-width: 140px;
+}
+
+.columnTitle {
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  font-weight: var(--fw-semibold);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-light);
+  margin-bottom: var(--space-3);
+}
+
+.linkList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.link {
+  font-family: var(--font-body);
+  font-size: var(--fs-sm);
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.link:hover,
+.link:focus-visible {
+  color: var(--color-secondary);
+}
+
+/* ---------- Divider ---------- */
+
+.divider {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.08);
+  margin: var(--space-6) 0 var(--space-3);
+}
+
+/* ---------- Bottom bar ---------- */
+
+.bottom {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
+
+.copyright {
+  font-family: var(--font-body);
+  font-size: var(--fs-xs);
+  color: var(--text-muted);
+  opacity: 0.7;
+}
+
+.legalList {
+  list-style: none;
+  display: flex;
+  gap: var(--space-3);
+}
+
+.legalLink {
+  font-family: var(--font-body);
+  font-size: var(--fs-xs);
+  color: var(--text-muted);
+  opacity: 0.7;
+  text-decoration: none;
+  transition: color var(--transition-fast), opacity var(--transition-fast);
+}
+
+.legalLink:hover,
+.legalLink:focus-visible {
+  color: var(--color-secondary);
+  opacity: 1;
+}
+
+.socialList {
+  list-style: none;
+  display: flex;
+  gap: var(--space-2);
+}
+
+.socialLink {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-body);
+  font-size: 0.6rem;
+  font-weight: var(--fw-medium);
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: border-color var(--transition-fast), color var(--transition-fast);
+}
+
+.socialLink:hover,
+.socialLink:focus-visible {
+  border-color: var(--color-secondary);
+  color: var(--color-secondary);
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 900px) {
+  .top {
+    flex-direction: column;
+  }
+
+  .columns {
+    gap: var(--space-4);
+  }
+}
+
+@media (max-width: 480px) {
+  .bottom {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .columns {
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+}
