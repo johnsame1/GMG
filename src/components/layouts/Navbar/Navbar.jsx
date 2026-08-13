@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import "./Navbar.css";
-
+import bg from "../../Photos/GMG_logo.png";
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [lang, setLang] = useState("EN");
@@ -40,7 +40,7 @@ const Navbar = () => {
       className={`gmg-nav ${scrolled ? "scrolled" : ""}`}
       ref={menuRef}
     >
-      <div className="gmg-nav-logo">GMG</div>
+      <div className="gmg-nav-logo"><img src={bg}></img></div>
 
       <div className="gmg-nav-actions">
         <button

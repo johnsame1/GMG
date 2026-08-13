@@ -28,7 +28,7 @@ const PROJECTS = [
   },
   {
     num: "04",
-    name: "Aterm",
+    name: "Atrium",
     category: "Gates",
     desc: "Stone-clad entrance gates, cut and finished for a facade-grade result and installed directly on-site.",
     tags: ["Facade", "Gates", "Exterior"],

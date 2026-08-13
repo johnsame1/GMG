@@ -20,12 +20,19 @@
 }
 
 .gmg-nav-logo {
-  font-family: "Fraunces", serif;
-  font-size: 22px;
-  font-weight: 600;
-  letter-spacing: 1px;
-  color: #EDE7DC;
+  display: flex;
+  align-items: center;
 }
+
+.gmg-nav-logo img {
+  display: block;       
+  height: 40px;          
+  width: auto;
+  object-fit: contain;
+  mix-blend-mode: normal; 
+  isolation: isolate;
+}
+
 
 .gmg-nav-actions {
   display: flex;
