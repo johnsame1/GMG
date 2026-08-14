@@ -37,7 +37,7 @@
 .gmg-nav-actions {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 32px;
 }
 
 .gmg-nav-links {
@@ -62,15 +62,6 @@
   opacity: 1;
 }
 
-.lang-btn {
-  background: transparent;
-  border: none;
-  color: #EDE7DC;
-  font-size: 13px;
-  cursor: pointer;
-  letter-spacing: 1px;
-}
-
 .menu-btn {
   display: none;
   background: transparent;
@@ -78,6 +69,68 @@
   color: #EDE7DC;
   font-size: 28px;
   cursor: pointer;
+}
+
+/* ========================= */
+/* Language toggle — sliding pill */
+/* ========================= */
+
+.lang-toggle {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  width: 64px;
+  height: 32px;
+  padding: 3px;
+  border: 1px solid rgba(237, 231, 220, 0.35);
+  border-radius: 999px;
+  background: rgba(237, 231, 220, 0.06);
+}
+
+.lang-toggle-thumb {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 29px;
+  height: 24px;
+  border-radius: 999px;
+  background: #EDE7DC;
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.lang-toggle.is-ar .lang-toggle-thumb {
+  transform: translateX(29px);
+}
+
+.lang-toggle-option {
+  position: relative;
+  z-index: 1;
+  flex: 1;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  color: #EDE7DC;
+  opacity: 0.6;
+  transition: opacity 0.25s, color 0.25s;
+}
+
+.lang-toggle.is-en .lang-toggle-option:first-child,
+.lang-toggle.is-ar .lang-toggle-option:last-child {
+  color: #221C1C;
+  opacity: 1;
+}
+
+/* RTL: flip the thumb's resting side and travel direction */
+[dir="rtl"] .lang-toggle-thumb {
+  left: auto;
+  right: 3px;
+}
+
+[dir="rtl"] .lang-toggle.is-ar .lang-toggle-thumb {
+  transform: translateX(-29px);
 }
 
 /* ========================= */
@@ -90,9 +143,7 @@
   }
 
   .gmg-nav-actions {
-    display: flex;
-    align-items: center;
-    gap: 16px;
+    gap: 14px;
     flex-direction: row-reverse;
   }
 
@@ -101,7 +152,7 @@
     order: 1;
   }
 
-  .lang-btn {
+  .lang-toggle {
     order: 2;
   }
 
@@ -122,5 +173,10 @@
 
   .gmg-nav-links.active {
     display: flex;
+  }
+
+  [dir="rtl"] .gmg-nav-links {
+    right: auto;
+    left: 24px;
   }
 }
