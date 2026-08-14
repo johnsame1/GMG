@@ -90,9 +90,9 @@
 .lang-toggle-thumb {
   position: absolute;
   top: 3px;
-  left: 3px;
+  left: 4px;
   width: 29px;
-  height: 24px;
+  height: 30px;
   border-radius: 999px;
   background: #EDE7DC;
   transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1);
@@ -112,7 +112,6 @@
   font-size: 11px;
   font-weight: 600;
   letter-spacing: 0.5px;
-  color: #EDE7DC;
   opacity: 0.6;
   transition: opacity 0.25s, color 0.25s;
 }
@@ -126,7 +125,7 @@
 /* RTL: flip the thumb's resting side and travel direction */
 [dir="rtl"] .lang-toggle-thumb {
   left: auto;
-  right: 3px;
+  right: 8px;
 }
 
 [dir="rtl"] .lang-toggle.is-ar .lang-toggle-thumb {

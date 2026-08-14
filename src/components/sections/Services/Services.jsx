@@ -21,22 +21,50 @@ const Services = () => {
   const [dotTops, setDotTops] = useState([]);
   const [fillPercent, setFillPercent] = useState(0);
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          const idx = Number(entry.target.dataset.step);
-          if (entry.isIntersecting && entry.intersectionRatio > 0.45) {
-            setActiveIdx(idx);
-          }
-        });
-      },
-      { threshold: [0, 0.45, 0.6, 1] },
-    );
+useEffect(() => {
+  let raf = null;
 
-    stepRefs.current.forEach((el) => el && observer.observe(el));
-    return () => observer.disconnect();
-  }, []);
+  const updateActive = () => {
+    raf = null;
+
+    const center = window.innerHeight / 2;
+    let closest = 0;
+    let minDistance = Infinity;
+
+    stepRefs.current.forEach((el, i) => {
+      if (!el) return;
+
+      const rect = el.getBoundingClientRect();
+      const elementCenter = rect.top + rect.height / 2;
+      const distance = Math.abs(center - elementCenter);
+
+      if (distance < minDistance) {
+        minDistance = distance;
+        closest = i;
+      }
+    });
+
+    setActiveIdx(closest);
+  };
+
+  const onScroll = () => {
+    if (raf === null) {
+      raf = requestAnimationFrame(updateActive);
+    }
+  };
+
+  updateActive();
+
+  window.addEventListener("scroll", onScroll, { passive: true });
+  window.addEventListener("resize", updateActive);
+
+  return () => {
+    window.removeEventListener("scroll", onScroll);
+    window.removeEventListener("resize", updateActive);
+
+    if (raf) cancelAnimationFrame(raf);
+  };
+}, []);
 
   useEffect(() => {
     function measure() {

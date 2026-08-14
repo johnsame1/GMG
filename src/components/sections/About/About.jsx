@@ -28,7 +28,7 @@ const imageReveal = {
   },
 };
 
-const viewportSettings = { once: false, amount: 0.3 };
+const viewportSettings = { once: true, amount: 0.3 };
 
 const About = () => {
   const { t } = useTranslation();

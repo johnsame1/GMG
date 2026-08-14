@@ -8,7 +8,58 @@ const PROJECT_KEYS = [
   { key: "cairoGate", swatch: "swatch-2" },
   { key: "mivida", swatch: "swatch-3" },
   { key: "aterm", swatch: "swatch-4" },
-];
+];const viewportSettings = {
+  once: true,
+  amount: 0.2,
+};
+
+const heroContainer = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.15,
+    },
+  },
+};
+
+const gridContainer = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.12,
+    },
+  },
+};
+
+const fadeUp = {
+  hidden: {
+    opacity: 0,
+    y: 40,
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.7,
+      ease: "easeOut",
+    },
+  },
+};
+
+const cardVariant = {
+  hidden: {
+    opacity: 0,
+    y: 40,
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.6,
+      ease: "easeOut",
+    },
+  },
+};
 
 const Projects = () => {
   const { t } = useTranslation();
@@ -30,6 +81,7 @@ const Projects = () => {
         initial="hidden"
         whileInView="visible"
         viewport={viewportSettings}
+        
       >
         <motion.div className="p-eyebrow" variants={fadeUp}>
           {t("projects.eyebrow")}
@@ -82,34 +134,7 @@ const Projects = () => {
         ))}
       </motion.section>
 
-      <motion.section
-        className="p-outro"
-        variants={heroContainer}
-        initial="hidden"
-        whileInView="visible"
-        viewport={viewportSettings}
-      >
-        <motion.div className="p-outro-eyebrow" variants={fadeUp}>
-          {t("projects.outroEyebrow")}
-        </motion.div>
-
-        <motion.h2 className="p-outro-h2 serif" variants={fadeUp}>
-          {t("projects.outroTitle1")}
-          <br />
-          {t("projects.outroTitle2")}
-        </motion.h2>
-
-        <motion.a
-          href="#contact"
-          className="p-cta"
-          variants={fadeUp}
-          whileHover={{ x: 6 }}
-          whileTap={{ scale: 0.97 }}
-          transition={{ duration: 0.3, ease: "easeOut" }}
-        >
-          {t("projects.cta")}
-        </motion.a>
-      </motion.section>
+     
     </div>
   );
 };

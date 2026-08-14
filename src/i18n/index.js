@@ -8,9 +8,20 @@ i18n.use(initReactI18next).init({
     en: { translation: en },
     ar: { translation: ar },
   },
-  lng: "en", // ← changed from "ar" to "en"
+  lng: "en",
   fallbackLng: "en",
   interpolation: { escapeValue: false },
+});
+
+const setDirection = (lng) => {
+  document.documentElement.lang = lng;
+  document.documentElement.dir = lng === "ar" ? "rtl" : "ltr";
+};
+
+setDirection(i18n.language);
+
+i18n.on("languageChanged", (lng) => {
+  setDirection(lng);
 });
 
 export default i18n;

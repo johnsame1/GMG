@@ -65,7 +65,7 @@
   position: absolute;
   inset-inline-end: 30px;
   top: 50%;
-  transform: translateY(-50%);
+  transform: translateY(-50%) !important;
   width: 500px;
   height: 400px;
 }

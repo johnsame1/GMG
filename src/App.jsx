@@ -9,6 +9,7 @@ import Projects from "./components/sections/Projects/Projects";
 import Footer from "./components/layouts/Footer/Footer";
 import Loader from "./components/layouts/Loader/Loader";
 import useLangDirection from "./hooks/useLangDirection";
+import ProductsSlider from "./components/sections/SliderProduct/SliderProduct";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -32,6 +33,8 @@ function App() {
           <About />
           <Services />
           <Projects />
+          <ProductsSlider />
+
           <Footer />
         </>
       )}

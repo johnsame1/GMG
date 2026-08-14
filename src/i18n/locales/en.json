@@ -53,81 +53,47 @@
       "focus": "Complete installation"
     }
   },
-   "projects": {
-    "eyebrow": "Selected Projects",
-    "title": "Projects That Define Our Work",
-    "sub": "A selection of residential and commercial projects delivered with precision and craftsmanship.",
-    "outroEyebrow": "Let's Build Together",
-    "outroTitle1": "Ready for",
-    "outroTitle2": "Your Next Project?",
-    "cta": "Contact Us",
-    "list": {
-      "utc": {
-        "name": "UTC",
-        "category": "Flooring & Staircases",
-        "desc": "Full flooring and staircase installation — natural stone treads, risers, and floor slabs finished and set on-site by our own team.",
-        "tags": ["Marble", "Staircases", "Interior"]
-      },
-      "cairoGate": {
-        "name": "Cairo Gate",
-        "category": "Landscape",
-        "desc": "Landscape stonework across outdoor walkways and shared areas, paired with the surrounding architecture and planting.",
-        "tags": ["Landscape", "Paving", "Outdoor"]
-      },
-      "mivida": {
-        "name": "Mivida",
-        "category": "Flooring",
-        "desc": "Interior flooring supplied and installed to match the development's design specification, slab by slab.",
-        "tags": ["Marble", "Flooring", "Interior"]
-      },
-      "aterm": {
-        "name": "Aterm",
-        "category": "Gates",
-        "desc": "Stone-clad entrance gates, cut and finished for a facade-grade result and installed directly on-site.",
-        "tags": ["Facade", "Gates", "Exterior"]
-      }
+  "projects": {
+  "eyebrow": "OUR PROJECTS",
+  "title": "Work we've delivered",
+  "sub": "A selection of completed projects — from flooring and staircases to landscape work and entrance gates.",
+  "outroEyebrow": "GOT A PROJECT IN MIND",
+  "outroTitle1": "Let's talk about",
+  "outroTitle2": "what you're building",
+  "cta": "Get in touch",
+  "list": {
+    "utc": {
+      "name": "UTC",
+      "category": "Flooring & Staircases",
+      "desc": "Full flooring and staircase installation — natural stone treads, risers, and floor slabs finished and set on-site by our own team.",
+      "tags": ["Marble", "Staircases", "Interior"]
+    },
+    "cairoGate": {
+      "name": "Cairo Gate",
+      "category": "Landscape",
+      "desc": "Landscape stonework across outdoor walkways and shared areas, paired with the surrounding architecture and planting.",
+      "tags": ["Landscape", "Paving", "Outdoor"]
+    },
+    "mivida": {
+      "name": "Mivida",
+      "category": "Flooring",
+      "desc": "Interior flooring supplied and installed to match the development's design specification, slab by slab.",
+      "tags": ["Marble", "Flooring", "Interior"]
+    },
+    "aterm": {
+      "name": "Aterm",
+      "category": "Gates",
+      "desc": "Stone-clad entrance gates, cut and finished for a facade-grade result and installed directly on-site.",
+      "tags": ["Facade", "Gates", "Exterior"]
     }
-  
-    "eyebrow": "OUR PROJECTS",
-    "title": "Work we've delivered",
-    "sub": "A selection of completed projects — from flooring and staircases to landscape work and entrance gates.",
-    "outroEyebrow": "GOT A PROJECT IN MIND",
-    "outroTitle1": "Let's talk about",
-    "outroTitle2": "what you're building",
-    "cta": "Get in touch",
-    "list": {
-      "utc": {
-        "name": "UTC",
-        "category": "Flooring & Staircases",
-        "desc": "Full flooring and staircase installation — natural stone treads, risers, and floor slabs finished and set on-site by our own team.",
-        "tags": ["Marble", "Staircases", "Interior"]
-      },
-      "cairoGate": {
-        "name": "Cairo Gate",
-        "category": "Landscape",
-        "desc": "Landscape stonework across outdoor walkways and shared areas, paired with the surrounding architecture and planting.",
-        "tags": ["Landscape", "Paving", "Outdoor"]
-      },
-      "mivida": {
-        "name": "Mivida",
-        "category": "Flooring",
-        "desc": "Interior flooring supplied and installed to match the development's design specification, slab by slab.",
-        "tags": ["Marble", "Flooring", "Interior"]
-      },
-      "aterm": {
-        "name": "Aterm",
-        "category": "Gates",
-        "desc": "Stone-clad entrance gates, cut and finished for a facade-grade result and installed directly on-site.",
-        "tags": ["Facade", "Gates", "Exterior"]
-      }
-    }
-  },
+  }
+},
   "footer": {
     "tagline": "Luxury Stone",
     "description": "Supplying the world's finest natural marble and stone to luxury architects, interior designers, and developers since 1986.",
     "contact": {
-      "address": "Via Cavour 14, 54033 Carrara, Italy",
-      "phone": "+39 0585 776 000",
+      "address": "Shak El Tebaan, Cairo",
+      "phone": "+20 11 19541496",
       "email": "enquiries@gmg.com"
     },
     "columns": {
@@ -167,5 +133,20 @@
       "behance": "BE",
       "pinterest": "PI"
     }
+    
+  },
+ "products": {
+  "eyebrow": "OUR COLLECTIONS",
+  "title": "Our Products",
+  "items": {
+    "marble": "Marble",
+    "granite": "Granite",
+    "onyx": "Onyx",
+    "travertine": "Travertine",
+    "limestone": "Limestone"
   }
+}
+  
+
+
 }

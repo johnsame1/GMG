@@ -2,13 +2,13 @@ import React from "react";
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import styles from "./Footer.module.css";
-
+import { FaFacebookF, FaWhatsapp, FaEnvelope } from "react-icons/fa";
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
   visible: { opacity: 1, y: 0 },
 };
 
-const viewportSettings = { once: false, amount: 0.2 };
+const viewportSettings = { once: true, amount: 0.2 };
 
 const FooterColumn = ({ title, links }) => (
   <div className={styles.column}>
@@ -35,11 +35,9 @@ const Footer = () => {
   const companyLinks = t("footer.columns.company", { returnObjects: true });
   const legalLinks = t("footer.legal", { returnObjects: true });
 
-  const contactDetails = [
-    t("footer.contact.address"),
-    t("footer.contact.phone"),
-    t("footer.contact.email"),
-  ];
+ const phone = "+201001234567";
+const email = "info@gmg.com";
+const address = t("footer.contact.address");
 
   const socialLinks = [
     { key: "instagram", label: t("footer.social.instagram") },
@@ -74,13 +72,56 @@ const Footer = () => {
             <p className={styles.description}>{t("footer.description")}</p>
 
             <ul className={styles.contactList}>
-              {contactDetails.map((item) => (
-                <li key={item} className={styles.contactItem}>
-                  <span className={styles.contactDash} />
-                  {item}
-                </li>
-              ))}
-            </ul>
+  <li className={styles.contactItem}>
+    <span className={styles.contactDash} />
+    {address}
+  </li>
+
+  <li className={styles.contactItem}>
+    <span className={styles.contactDash} />
+    <a
+      href={`tel:${phone}`}
+      className={styles.contactLink}
+      dir="ltr"
+    >
+      <bdi>{phone}</bdi>
+    </a>
+  </li>
+
+  <li className={styles.contactItem}>
+    <span className={styles.contactDash} />
+    <a
+      href={`mailto:${email}`}
+      className={styles.contactLink}
+    >
+      {email}
+    </a>
+  </li>
+</ul>
+
+<div className={styles.contactIcons}>
+  <a
+    href="https://facebook.com/gmg"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Facebook"
+  >
+    <FaFacebookF />
+  </a>
+
+  <a
+    href={`https://wa.me/${phone.replace("+", "")}`}
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="WhatsApp"
+  >
+    <FaWhatsapp />
+  </a>
+
+  <a href={`mailto:${email}`} aria-label="Email">
+    <FaEnvelope />
+  </a>
+</div>
           </motion.div>
 
           <motion.div
@@ -110,31 +151,11 @@ const Footer = () => {
           variants={fadeUp}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <p className={styles.copyright}>{t("footer.copyright")}</p>
+          <p className={styles.copyright} style={{textAlign : "center"}}>{t("footer.copyright")}</p>
 
-          <ul className={styles.legalList}>
-            {legalLinks.map((item) => (
-              <li key={item}>
-                <a href="#" className={styles.legalLink}>
-                  {item}
-                </a>
-              </li>
-            ))}
-          </ul>
+       
 
-          <ul className={styles.socialList}>
-            {socialLinks.map((item) => (
-              <li key={item.key}>
-                <a
-                  href="#"
-                  className={styles.socialLink}
-                  aria-label={item.label}
-                >
-                  {item.label}
-                </a>
-              </li>
-            ))}
-          </ul>
+         
         </motion.div>
       </motion.div>
     </footer>
