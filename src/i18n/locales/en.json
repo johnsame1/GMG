@@ -135,18 +135,19 @@
     }
     
   },
- "products": {
-  "eyebrow": "OUR COLLECTIONS",
-  "title": "Our Products",
-  "items": {
-    "marble": "Marble",
-    "granite": "Granite",
-    "onyx": "Onyx",
-    "travertine": "Travertine",
-    "limestone": "Limestone"
+
+  "products": {
+    "title": "Our Collections",
+    "filter": {
+      "marble": "Marble",
+      "granite": "Granite",
+      "onyx": "Onyx",
+      "travertine": "Travertine",
+      "limestone": "Limestone"
+    }
   }
 }
   
 
 
-}
+

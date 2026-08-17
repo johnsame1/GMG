@@ -1,68 +1,97 @@
-import React from "react";
+import React, { useMemo, useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import useEmblaCarousel from "embla-carousel-react";
 import AutoScroll from "embla-carousel-auto-scroll";
+
 import "./SliderProduct.css";
+import { PRODUCTS } from "../SliderProduct/productsData.js";
 
-import marble from "../../Photos/one.jpg";
-import granite from "../../Photos/two.jpg";
-import onyx from "../../Photos/one.jpg";
-import travertine from "../../Photos/two.jpg";
-import limestone from "../../Photos/one.jpg";
-
-const PRODUCTS = [
-  { key: "marble", image: marble },
-  { key: "granite", image: granite },
-  { key: "onyx", image: onyx },
-  { key: "travertine", image: travertine },
-  { key: "limestone", image: limestone },
-
-  // تكرار للـ Loop
-  { key: "marble", image: marble },
-  { key: "granite", image: granite },
-  { key: "onyx", image: onyx },
-  { key: "travertine", image: travertine },
-  { key: "limestone", image: limestone },
+const TYPES = [
+  "marble",
+  "granite",
+  "onyx",
+  "travertine",
+  "limestone",
 ];
 
 export default function ProductsSlider() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
 
-  const [emblaRef] = useEmblaCarousel(
+  const [activeType, setActiveType] = useState("marble");
+
+  // Plugin
+  const autoScroll = useMemo(
+    () =>
+      AutoScroll({
+              playOnInit: true,
+        speed: 1.2,
+        stopOnInteraction: false,
+        stopOnMouseEnter: false,
+      stopOnFocusIn: false,
+      }),
+    []
+  );
+
+  // Embla
+  const [emblaRef, emblaApi] = useEmblaCarousel(
     {
       loop: true,
       dragFree: true,
       align: "start",
-      direction: "ltr",
     },
-    [
-      AutoScroll({
-        speed: 1,
-        direction: "backward",
-        stopOnInteraction: false,
-        stopOnMouseEnter: false,
-      }),
-    ]
+    [autoScroll]
   );
+
+  const currentProducts = useMemo(() => {
+  const items = PRODUCTS[activeType] || [];
+  return [...items, ...items, ...items];
+}, [activeType]);
+
+  useEffect(() => {
+    if (!emblaApi) return;
+
+    emblaApi.reInit();
+    emblaApi.scrollTo(0);
+    autoScroll.play();
+  }, [activeType, emblaApi, autoScroll]);
 
   return (
     <section className="products-section" id="collections">
       <div className="products-header">
         <h2>{t("products.title")}</h2>
+
+        <div className="products-filter">
+          {TYPES.map((type) => (
+            <button
+              key={type}
+              className={activeType === type ? "active" : ""}
+              onClick={() => setActiveType(type)}
+            >
+              {t(`products.filter.${type}`)}
+            </button>
+          ))}
+        </div>
       </div>
 
-      {/* مهم جداً */}
-      <div className="embla" dir="ltr" ref={emblaRef}>
+      <div className="embla" ref={emblaRef} dir="ltr">
         <div className="embla__container">
-          {PRODUCTS.map((item, index) => (
-            <div className="embla__slide" key={index}>
-              <div className="product-card">
+{currentProducts.map((item, index) => (
+  <div className="embla__slide" key={`${item.id}-${index}`}>              <div className="product-card">
                 <img
                   src={item.image}
-                  alt={t(`products.items.${item.key}`)}
+                  alt={
+                    i18n.language === "ar"
+                      ? item.name.ar
+                      : item.name.en
+                  }
+                  loading="lazy"
                 />
 
-                <h3 dir="auto">{t(`products.items.${item.key}`)}</h3>
+                <h3>
+                  {i18n.language === "ar"
+                    ? item.name.ar
+                    : item.name.en}
+                </h3>
               </div>
             </div>
           ))}

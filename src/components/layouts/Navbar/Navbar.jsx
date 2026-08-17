@@ -35,7 +35,9 @@ const Navbar = () => {
       className={`gmg-nav ${scrolled ? "scrolled" : ""}`}
       ref={menuRef}
     >
-      <div className="gmg-nav-logo">GMG</div>
+      <div className="gmg-nav-logo">
+        <img src={bg} alt="GMG Logo" />
+      </div>
 
       <div className="gmg-nav-actions">
         <div className={`lang-toggle ${isAr ? "is-ar" : "is-en"}`}>

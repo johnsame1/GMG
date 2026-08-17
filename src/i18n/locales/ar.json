@@ -139,10 +139,10 @@
       "pinterest": "PI"
     }
   },
+  
   "products": {
-    "eyebrow": "مجموعاتنا",
-    "title": "منتجاتنا",
-    "items": {
+    "title": "مجموعاتنا",
+    "filter": {
       "marble": "رخام",
       "granite": "جرانيت",
       "onyx": "أونيكس",
