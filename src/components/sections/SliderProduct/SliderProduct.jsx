@@ -4,7 +4,7 @@ import useEmblaCarousel from "embla-carousel-react";
 import AutoScroll from "embla-carousel-auto-scroll";
 
 import "./SliderProduct.css";
-import { PRODUCTS } from "../SliderProduct/productsData.js";
+import { PRODUCTS } from "../SliderProduct/productsData.Js";
 
 const TYPES = [
   "marble",
