@@ -22,10 +22,17 @@
   box-sizing: border-box;
 }
 
-.serif { font-family: 'Playfair Display', serif; }
-.mono { font-family: 'IBM Plex Mono', monospace; }
+.serif {
+  font-family: 'Playfair Display', serif;
+}
 
-/* ---------- hero ---------- */
+.mono {
+  font-family: 'IBM Plex Mono', monospace;
+}
+
+/* =========================================================
+   HERO
+========================================================= */
 
 .p-hero {
   padding: 10vh 7vw 6vh;
@@ -55,74 +62,142 @@
   max-width: 46ch;
 }
 
-/* ---------- grid ---------- */
+/* =========================================================
+   GRID
+========================================================= */
 
 .p-grid {
   padding: 2vh 7vw 10vh;
+
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+
   gap: 2.5rem;
 }
 
+/* =========================================================
+   CARD
+========================================================= */
+
 .p-card {
   background: var(--card-bg);
+
   border: 1px solid var(--stone-line);
   border-radius: 4px;
+
   overflow: hidden;
+
   display: flex;
   flex-direction: column;
-  transition: border-color .35s ease, transform .35s ease;
+
+  transition:
+    border-color .35s ease,
+    transform .35s ease,
+    box-shadow .35s ease;
 }
 
 .p-card:hover {
   border-color: rgba(201, 143, 82, .45);
-  transform: translateY(-3px);
+
+  transform: translateY(-6px);
+
+  box-shadow:
+    0 18px 45px rgba(42, 37, 28, .08);
 }
 
-/* Textured placeholder visual per project — swap for real photography
-   by replacing this block with an <img> once site photos are available. */
+/* =========================================================
+   PROJECT IMAGE
+========================================================= */
 
 .p-swatch {
   position: relative;
-  height: 220px;
-  display: flex;
-  align-items: flex-end;
-  padding: 1.2rem;
+
+  width: 100%;
+  height: 300px;
+
+  overflow: hidden;
+
+  background: #1e1e1c;
 }
+
+/* image */
+
+.p-project-image {
+  position: absolute;
+
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  display: block;
+
+  transition:
+    transform .7s cubic-bezier(.2, .65, .3, 1),
+    filter .5s ease;
+}
+
+/* dark cinematic overlay */
+
+.p-swatch::after {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    linear-gradient(
+      to top,
+      rgba(0, 0, 0, .55),
+      rgba(0, 0, 0, .05) 65%
+    );
+
+  pointer-events: none;
+}
+
+/* image zoom */
+
+.p-card:hover .p-project-image {
+  transform: scale(1.06);
+
+  filter: saturate(1.05);
+}
+
+/* =========================================================
+   PROJECT NUMBER
+========================================================= */
 
 .p-swatch-num {
+  position: absolute;
+
+  left: 1.2rem;
+  bottom: 1.2rem;
+
+  z-index: 2;
+
   font-size: .85rem;
-  color: rgba(244, 240, 232, .55);
+
+  color: rgba(244, 240, 232, .75);
+
   letter-spacing: .1em;
+
+  padding: .35rem .55rem;
+
+  border: 1px solid rgba(255, 255, 255, .18);
+
+  background: rgba(0, 0, 0, .18);
+
+  backdrop-filter: blur(6px);
+
+  border-radius: 2px;
 }
 
-.swatch-1 {
-  background:
-    linear-gradient(160deg, rgba(201,143,82,.18), transparent 60%),
-    repeating-linear-gradient(115deg, #232320 0 2px, #1c1c1a 2px 5px),
-    #1e1e1c;
-}
-
-.swatch-2 {
-  background:
-    linear-gradient(200deg, rgba(120,150,110,.14), transparent 55%),
-    repeating-linear-gradient(60deg, #22221f 0 3px, #1b1b19 3px 7px),
-    #1e1e1c;
-}
-
-.swatch-3 {
-  background:
-    linear-gradient(140deg, rgba(227,172,110,.14), transparent 60%),
-    repeating-linear-gradient(20deg, #242420 0 4px, #1d1d1b 4px 8px),
-    #1e1e1c;
-}
-
-.swatch-4 {
-  background:
-    linear-gradient(210deg, rgba(140,140,150,.14), transparent 55%),
-    repeating-linear-gradient(90deg, #232321 0 2px, #1a1a19 2px 6px),
-    #1e1e1c;
-}
+/* =========================================================
+   CARD BODY
+========================================================= */
 
 .p-card-body {
   padding: 1.8rem 1.8rem 2.1rem;
@@ -130,89 +205,221 @@
 
 .p-category {
   display: block;
+
   color: var(--amber-bright);
+
   font-size: .7rem;
+
   letter-spacing: .1em;
+
   text-transform: uppercase;
+
   margin-bottom: .7rem;
 }
 
 .p-name {
   font-weight: 600;
+
   font-size: 1.7rem;
-  margin-bottom: .8rem;
+
+  line-height: 1.2;
+
+  margin: 0 0 .8rem;
 }
 
 .p-desc {
   color: var(--ink-dim);
+
   font-size: .96rem;
+
   line-height: 1.7;
-  margin-bottom: 1.4rem;
+
+  margin: 0 0 1.4rem;
 }
+
+/* =========================================================
+   TAGS
+========================================================= */
 
 .p-tags {
   display: flex;
+
   flex-wrap: wrap;
+
   gap: .5rem;
 }
 
 .p-tag {
   font-family: 'IBM Plex Mono', monospace;
+
   font-size: .68rem;
+
   letter-spacing: .05em;
+
   color: var(--ink-dimmer);
+
   border: 1px solid var(--stone-line);
+
   padding: .3rem .6rem;
+
   border-radius: 999px;
+
+  transition:
+    color .25s ease,
+    border-color .25s ease,
+    background .25s ease;
 }
 
-/* ---------- outro ---------- */
+.p-card:hover .p-tag {
+  border-color: rgba(181, 114, 58, .35);
+
+  color: var(--amber);
+}
+
+/* =========================================================
+   OUTRO
+========================================================= */
 
 .p-outro {
   padding: 8vh 7vw 12vh;
+
   border-top: 1px solid var(--stone-line);
+
   display: flex;
+
   flex-direction: column;
+
   align-items: flex-start;
 }
 
 .p-outro-eyebrow {
   color: var(--amber);
+
   letter-spacing: .28em;
+
   font-size: .72rem;
+
   text-transform: uppercase;
+
   margin-bottom: 1.4rem;
 }
 
 .p-outro-h2 {
   font-weight: 600;
+
   font-size: clamp(1.8rem, 4vw, 2.7rem);
+
   line-height: 1.2;
+
   margin-bottom: 2rem;
 }
 
 .p-cta {
   display: inline-block;
+
   color: var(--bg);
+
   background: var(--amber-bright);
+
   font-size: .9rem;
+
   font-weight: 500;
+
   letter-spacing: .02em;
+
   text-decoration: none;
+
   padding: .9rem 1.8rem;
+
   border-radius: 2px;
-  transition: background .3s ease, transform .3s ease;
+
+  transition:
+    background .3s ease,
+    transform .3s ease;
 }
 
 .p-cta:hover {
   background: #f0c090;
+
   transform: translateY(-2px);
 }
 
-/* ---------- responsive ---------- */
+/* =========================================================
+   TABLET
+========================================================= */
 
-@media (max-width: 780px) {
+@media (max-width: 900px) {
   .p-grid {
     grid-template-columns: 1fr;
+
+    gap: 2rem;
   }
-} 
+
+  .p-swatch {
+    height: 320px;
+  }
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 780px) {
+  .p-hero {
+    padding: 80px 6vw 45px;
+  }
+
+  .p-grid {
+    padding: 20px 6vw 80px;
+
+    grid-template-columns: 1fr;
+
+    gap: 1.5rem;
+  }
+
+  .p-swatch {
+    height: 250px;
+  }
+
+  .p-card-body {
+    padding: 1.5rem;
+  }
+
+  .p-name {
+    font-size: 1.5rem;
+  }
+
+  .p-desc {
+    font-size: .92rem;
+  }
+}
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 480px) {
+  .p-hero {
+    padding: 70px 5vw 40px;
+  }
+
+  .p-grid {
+    padding: 15px 5vw 70px;
+  }
+
+  .p-swatch {
+    height: 220px;
+  }
+
+  .p-card-body {
+    padding: 1.35rem;
+  }
+
+  .p-h1 {
+    font-size: 2.2rem;
+  }
+
+  .p-sub {
+    font-size: .95rem;
+  }
+}
