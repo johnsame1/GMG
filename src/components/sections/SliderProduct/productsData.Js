@@ -1,3 +1,7 @@
+
+import Classic_Travertine from"../../Photos/Classic Travertine.jpg"
+import Ivory_Travertine from"../../Photos/Ivory Travertine.jpg"
+import Jerusalem_Stone from"../../Photos/Jerusalem Stone.webp"
 export const PRODUCTS = {
   marble: [
     {
@@ -150,8 +154,7 @@ export const PRODUCTS = {
         en: "Classic Travertine",
         ar: "ترافرتين كلاسيك",
       },
-      image:
-        "https://images.unsplash.com/photo-1600607687644-aac4c3eac7f4?w=800&q=80",
+      image:Classic_Travertine,
     },
     {
       id: 2,
@@ -177,8 +180,7 @@ export const PRODUCTS = {
         en: "Ivory Travertine",
         ar: "ترافرتين عاجي",
       },
-      image:
-        "https://images.unsplash.com/photo-1600047509355-9dc75507daeb?w=800&q=80",
+      image: Ivory_Travertine,
     },
     {
       id: 5,
@@ -207,8 +209,7 @@ export const PRODUCTS = {
         en: "Jerusalem Stone",
         ar: "حجر القدس",
       },
-      image:
-        "https://images.unsplash.com/photo-1600566752227-8f3b96265c08?w=800&q=80",
+      image: Jerusalem_Stone,
     },
     {
       id: 3,
