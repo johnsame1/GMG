@@ -9,9 +9,6 @@ import { PRODUCTS } from "./productsData.Js";
 const TYPES = [
   "marble",
   "granite",
-  "onyx",
-  "travertine",
-  "limestone",
 ];
 
 export default function ProductsSlider() {

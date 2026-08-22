@@ -35,8 +35,8 @@ const Footer = () => {
   const companyLinks = t("footer.columns.company", { returnObjects: true });
   const legalLinks = t("footer.legal", { returnObjects: true });
 
- const phone = "+201001234567";
-const email = "info@gmg.com";
+ const phone = "+201119541496";
+const email = "gmg2021990@gmail.com";
 const address = t("footer.contact.address");
 
   const socialLinks = [
