@@ -30,7 +30,7 @@
       "desc": "Large marble blocks are carefully cut from the quarry using diamond wire.",
       "method": "Diamond wire cutting",
       "focus": "Safe and careful cutting",
-      "image": "/src/components/Photos/extract.jpg"
+      "image": "/public/extract.jpg"
 
     },
     "step2": {
@@ -39,7 +39,7 @@
       "desc": "The large blocks are cut into marble slabs and numbered to keep the natural pattern in order.",
       "method": "Block cutting",
       "focus": "Natural marble pattern",
-      "image": "/src/components/Photos/cut.jpg"
+        "image": "/public/cut.jpg"
 
     },
     "step3": {
@@ -48,7 +48,7 @@
       "desc": "Each slab is polished or finished to get the right look, texture, and shine.",
       "method": "Polishing and finishing",
       "focus": "The right finish",
-      "image": "/src/components/Photos/POLISH.jpg"
+      "image": "/public/POLISH.jpg"
 
     },
     "step4": {
@@ -57,7 +57,7 @@
       "desc": "Our team installs the marble directly on-site, from floors and lobbies to walls and facades.",
       "method": "Our installation team",
       "focus": "Complete installation",
-      "image": "/src/components/Photos/INSTALL.jpg"
+      "image": "/public/INSTALL.jpg"
 
     }
   },
