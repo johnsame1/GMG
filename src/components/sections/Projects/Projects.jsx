@@ -25,7 +25,7 @@ const PROJECT_KEYS = [
     image: Mivida,
   },
   {
-    key: "aterm",
+    key: "capitalGates",
     swatch: "swatch-4",
     image: atrem,
   },

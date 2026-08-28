@@ -5,15 +5,16 @@ import "./Services.css";
 const Services = () => {
   const { t } = useTranslation();
 
-  const STEPS = [1, 2, 3, 4].map((n) => ({
-    tag: t(`services.step${n}.tag`),
-    title: t(`services.step${n}.title`),
-    desc: t(`services.step${n}.desc`),
-    meta: [
-      { label: t("services.method"), value: t(`services.step${n}.method`) },
-      { label: t("services.focus"), value: t(`services.step${n}.focus`) },
-    ],
-  }));
+const STEPS = [1, 2, 3, 4].map((n) => ({
+  tag: t(`services.step${n}.tag`),
+  title: t(`services.step${n}.title`),
+  desc: t(`services.step${n}.desc`),
+  image: t(`services.step${n}.image`), // مسار الصورة من ملف الترجمة، أو حطه مباشر لو مش عايز ترجمة
+  meta: [
+    { label: t("services.method"), value: t(`services.step${n}.method`) },
+    { label: t("services.focus"), value: t(`services.step${n}.focus`) },
+  ],
+}));
 
   const stepRefs = useRef([]);
   const timelineRef = useRef(null);
@@ -147,31 +148,35 @@ useEffect(() => {
           />
         ))}
 
-        {STEPS.map((step, i) => {
-          const active = activeIdx === i;
-          const side = i % 2 === 0 ? "left" : "right";
-          return (
-            <div key={i} className={`timeline-row ${side}`}>
-              <article
-                ref={(el) => (stepRefs.current[i] = el)}
-                data-step={i}
-                className={`step${active ? " active" : ""}`}
-              >
-                <span className="step-num mono">{step.tag}</span>
-                <h2 className="step-title serif">{step.title}</h2>
-                <p className="step-desc">{step.desc}</p>
-                <div className="step-detail">
-                  {step.meta.map((m, j) => (
-                    <div key={j} className="detail-item mono">
-                      {m.label}
-                      <span>{m.value}</span>
-                    </div>
-                  ))}
-                </div>
-              </article>
+{STEPS.map((step, i) => {
+  const active = activeIdx === i;
+  const side = i % 2 === 0 ? "left" : "right";
+  return (
+    <div key={i} className={`timeline-row ${side}`}>
+      <article
+        ref={(el) => (stepRefs.current[i] = el)}
+        data-step={i}
+        className={`step${active ? " active" : ""}`}
+      >
+        <span className="step-num mono">{step.tag}</span>
+        <h2 className="step-title serif">{step.title}</h2>
+        <p className="step-desc">{step.desc}</p>
+        <div className="step-detail">
+          {step.meta.map((m, j) => (
+            <div key={j} className="detail-item mono">
+              {m.label}
+              <span>{m.value}</span>
             </div>
-          );
-        })}
+          ))}
+        </div>
+      </article>
+
+      <div className={`step-media${active ? " active" : ""}`}>
+        <img src={step.image} alt={step.title} loading="lazy" />
+      </div>
+    </div>
+  );
+})}
       </div>
     </div>
   );

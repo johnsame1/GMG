@@ -20,14 +20,22 @@ import RedAswanGranite from"../../Photos/Red Aswan Granite.jpg"
 import RosaElnasrGranite from"../../Photos/Rosa Elnasr Granite.jpg"
 import RosaHodiGranite from"../../Photos/Rosa Hodi Granite.jpg"
 import RedHurghadaGranite from"../../Photos/Red Hurghada Granite.jpg"
+import BrownQuseirGranite from"../../Photos/bonyoser.jpg"
+import FantasticWhiteGranite from"../../Photos/fantastic white.jpg"
+import KemetBrown from"../../Photos/Kemet Brown.jpg"
+import VerdeGreenGranite from"../../Photos/verdi green.jpg"
+import BlackBasaltGranite from"../../Photos/BlackBasaltGranite.jpg"
+import SplitFaceMarble from"../../Photos/Split Face Marble.jpg"
+import SplitFaceMarble2 from"../../Photos/sina bryl 2.jpg"
+
 
 export const PRODUCTS = {
   marble: [
     {
       id: 1,
       name: {
-        en: " Trieste beige marble ",
-        ar: "رخام تريستا بيج",
+        en: "Sinai Pearl Marble",
+        ar: "رخام  سينا بريل",
       },
       image:treistabeige
       
@@ -101,6 +109,25 @@ export const PRODUCTS = {
       image: catrina_marble,
         
     },
+    {
+      id: 10,
+      name: {
+        en: "Sunny Menia split face Marble",
+        ar: "رخام وش جبل",
+      },
+      image: SplitFaceMarble,
+        
+    },
+    {
+      id: 11,
+      name: {
+        en: "Sinai Pearl split face Marble 2",
+        ar: "رخام وش جبل 2",
+      },
+      image: SplitFaceMarble2,
+        
+    },
+    
   ],
 
   granite: [
@@ -182,6 +209,51 @@ export const PRODUCTS = {
         ar: " جرانيت احمر الغردقة",
       },
       image: RedHurghadaGranite
+        ,
+    },
+    {
+      id: 10,
+      name: {
+        en: "Brown Quseir Granite",
+        ar: " جرانيت بني قصير",
+      },
+      image: BrownQuseirGranite
+        ,
+    },
+    {
+      id: 11,
+      name: {
+        en: "Fantastic White Granite",
+        ar: " جرانيت فنتاستك وايت",
+      },
+      image: FantasticWhiteGranite
+        ,
+    },
+    {
+      id: 12,
+      name: {
+        en: "Kemet Brown Granite",
+        ar: " جرانيت بني كيمت",
+      },
+      image: KemetBrown
+        ,
+    },
+    {
+      id: 13,
+      name: {
+        en: "Verde Green Granite",
+        ar: " جرانيت فيردي أخضر",
+      },
+      image: VerdeGreenGranite
+        ,
+    },
+    {
+      id: 14,
+      name: {
+        en: "Black basalt Granite",
+        ar: " جرانيت بازلت أسود",
+      },
+      image: BlackBasaltGranite
         ,
     },
   ],
