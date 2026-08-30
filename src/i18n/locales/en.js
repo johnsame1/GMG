@@ -1,0 +1,137 @@
+import extractImg from "../../components/Photos/extract.jpg";
+import cutImg from "../../components/Photos/cut.jpg";
+import polishImg from "../../components/Photos/POLISH.jpg";
+import installImg from "../../components/Photos/install.jpg";
+
+const en = {
+  nav: {
+    collections: "Collections",
+    process: "Process",
+    projects: "Projects",
+    contact: "Contact",
+  },
+  hero: {
+    eyebrow: "Quarried in Egypt · Cut for the world",
+    title1: "Where stone",
+    title2: "becomes",
+    titleEm: "architecture",
+    text: "GMG sources, cuts, and finishes natural marble and granite for architects and developers who won't compromise on material honesty.",
+    cta: "View the collections →",
+    scroll: "Scroll",
+  },
+  about: {
+    subtitle: "CURATED LIVING, QUIETLY LUXURIOUS.",
+    title: "About GMG",
+    p1: "GMG is a design studio rooted in a love of timeless interiors and considered details. We create elegant spaces that balance beauty, functionality, and emotion.",
+    p2: "With years of experience, we transform ideas into refined environments tailored to every client.",
+    button: "Get in Touch",
+  },
+  services: {
+    method: "METHOD",
+    focus: "FOCUS",
+    step1: {
+      tag: "01 / QUARRY",
+      title: "Marble is taken from the quarry",
+      desc: "Large marble blocks are carefully cut from the quarry using diamond wire.",
+      method: "Diamond wire cutting",
+      focus: "Safe and careful cutting",
+      image: extractImg,
+    },
+    step2: {
+      tag: "02 / CUT",
+      title: "Blocks are cut into slabs",
+      desc: "The large blocks are cut into marble slabs and numbered to keep the natural pattern in order.",
+      method: "Block cutting",
+      focus: "Natural marble pattern",
+      image: cutImg,
+    },
+    step3: {
+      tag: "03 / POLISH",
+      title: "Slabs are polished",
+      desc: "Each slab is polished or finished to get the right look, texture, and shine.",
+      method: "Polishing and finishing",
+      focus: "The right finish",
+      image: polishImg,
+    },
+    step4: {
+      tag: "04 / INSTALL",
+      title: "Marble is installed on-site",
+      desc: "Our team installs the marble directly on-site, from floors and lobbies to walls and facades.",
+      method: "Our installation team",
+      focus: "Complete installation",
+      image: installImg,
+    },
+  },
+  projects: {
+    eyebrow: "OUR PROJECTS",
+    title: "Work we've delivered",
+    sub: "A selection of completed projects — from flooring and staircases to landscape work and entrance gates.",
+    outroEyebrow: "GOT A PROJECT IN MIND",
+    outroTitle1: "Let's talk about",
+    outroTitle2: "what you're building",
+    cta: "Get in touch",
+    list: {
+      utc: {
+        name: "UTC",
+        category: "Flooring & Staircases",
+        desc: "Full flooring and staircase installation — natural stone treads, risers, and floor slabs finished and set on-site by our own team.",
+        tags: ["Marble", "Staircases", "Interior"],
+      },
+      cairoGate: {
+        name: "Cairo Gate",
+        category: "Landscape",
+        desc: "Landscape stonework across outdoor walkways and shared areas, paired with the surrounding architecture and planting.",
+        tags: ["Landscape", "Paving", "Outdoor"],
+      },
+      mivida: {
+        name: "Mivida",
+        category: "Flooring",
+        desc: "Interior flooring supplied and installed to match the development's design specification, slab by slab.",
+        tags: ["Marble", "Flooring", "Interior"],
+      },
+      capitalGates: {
+        name: "Capital Gates",
+        category: "Gates",
+        desc: "Stone-clad entrance gates, cut and finished for a facade-grade result and installed directly on-site.",
+        tags: ["Facade", "Gates", "Exterior"],
+      },
+    },
+  },
+  footer: {
+    tagline: "Luxury Stone",
+    description: "Supplying the world's finest natural marble and stone to luxury architects, interior designers, and developers since 1986.",
+    contact: {
+      address: "Shak El Tebaan, Cairo",
+      phone: "+201119541496",
+      email: "gmg2021990@gmail.com",
+    },
+    columns: {
+      collectionsTitle: "Collections",
+      collections: ["Calacatta", "Statuario", "Nero Marquina", "Emperador", "Onyx", "Travertine"],
+      servicesTitle: "Services",
+      services: ["Consulting", "Custom Fabrication", "Installation", "Aftercare", "Sample Library", "Export"],
+      companyTitle: "Company",
+      company: ["About GMG", "Our Quarries", "Sustainability", "Press", "Careers", "Contact"],
+    },
+    copyright: "© 2026 GMG Luxury Stone. All rights reserved.",
+    legal: ["Privacy Policy", "Terms of Use", "Cookie Policy"],
+    social: {
+      instagram: "IG",
+      linkedin: "LI",
+      behance: "BE",
+      pinterest: "PI",
+    },
+  },
+  products: {
+    title: "Our Collections",
+    filter: {
+      marble: "Marble",
+      granite: "Granite",
+      onyx: "Onyx",
+      travertine: "Travertine",
+      limestone: "Limestone",
+    },
+  },
+};
+
+export default en;
