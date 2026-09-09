@@ -18,7 +18,7 @@ const Loader = () => {
         <span className={styles.bar} />
         <div>
           <div className={styles.title}>GMG</div>
-          <div className={styles.subtitle}>Luxury Stone</div>
+          <div className={styles.subtitle}>Marble Luxury Stone</div>
         </div>
       </motion.div>
 

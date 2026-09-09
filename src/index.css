@@ -6,6 +6,7 @@ a{
    text-decoration: inherit;
    color: inherit;
 }
+
 :root {
   --color-primary: #0f0f10;
   --color-secondary: #c9a227;
