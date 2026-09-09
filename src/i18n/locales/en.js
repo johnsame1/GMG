@@ -107,11 +107,11 @@ const en = {
     },
     columns: {
       collectionsTitle: "Collections",
-      collections: ["Calacatta", "Statuario", "Nero Marquina", "Emperador", "Onyx", "Travertine"],
+      collections: ["Sinai Pearl", "Triesta gray", "Sunny Menia", "Sylvia green", "Imperial", "Catrina"],
       servicesTitle: "Services",
       services: ["Consulting", "Custom Fabrication", "Installation", "Aftercare", "Sample Library", "Export"],
       companyTitle: "Company",
-      company: ["About GMG", "Our Quarries", "Sustainability", "Press", "Careers", "Contact"],
+      company: ["About GMG", "Our Quarries", "Contact"],
     },
     copyright: "© 2026 GMG Luxury Stone. All rights reserved.",
     legal: ["Privacy Policy", "Terms of Use", "Cookie Policy"],

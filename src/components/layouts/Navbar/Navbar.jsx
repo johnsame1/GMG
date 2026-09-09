@@ -71,11 +71,7 @@ const Navbar = () => {
         </button>
 
         <ul className={`gmg-nav-links ${menuOpen ? "active" : ""}`}>
-          <li>
-            <a href="#collections" onClick={() => setMenuOpen(false)}>
-              {t("nav.collections")}
-            </a>
-          </li>
+         
           <li>
             <a href="#process" onClick={() => setMenuOpen(false)}>
               {t("nav.process")}
@@ -84,6 +80,11 @@ const Navbar = () => {
           <li>
             <a href="#projects" onClick={() => setMenuOpen(false)}>
               {t("nav.projects")}
+            </a>
+          </li>
+           <li>
+            <a href="#collection" onClick={() => setMenuOpen(false)}>
+              {t("nav.collections")}
             </a>
           </li>
           <li>

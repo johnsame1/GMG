@@ -105,7 +105,7 @@ const Hero = () => {
         </motion.p>
 
         <motion.a
-          href="#collections"
+          href="#collection"
           className="gmg-cta"
           variants={fadeUp}
           whileHover={{ x: 6 }}
